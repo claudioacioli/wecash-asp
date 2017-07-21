@@ -1,0 +1,104 @@
+
+create table tb_empresa(
+    id_empresa number(11) not null primary key
+)
+
+create sequence sq_empresa
+
+create table tb_usuario(
+    id_empresa number(11) not null,
+    id_usuario number(11) not null primary key
+)
+
+alter table tb_usuario add constraint fk_usuario_empresa foreign key(id_empresa) references tb_empresa(id_empresa)
+
+create sequence sq_usuario
+
+create table tb_caixa(
+    id_empresa number(11) not null,
+    id_caixa number(11) not null primary key,
+    ds_caixa varchar2(250) not null,
+    nr_saldo_inicial number(10,2) not null,
+    dt_caixa date
+)
+
+create sequence sq_caixa
+
+alter table tb_caixa add constraint fk_caixa_empresa foreign key(id_empresa) references tb_empresa(id_empresa)
+
+create table tb_movimento(
+    id_caixa number(11) not null,
+    id_movimento number(11) not null primary key,
+    id_categoria number(11) not null,
+    ds_historico varchar2(250) not null,
+    tp_movimento char(1) not null,
+    nr_valor_previsto number(10,2) not null,
+    nr_valor_confirmado number(10,2),
+    dt_previsao date,
+    dt_confirmacao date
+)
+
+alter table tb_movimento add constraint fk_movimento_caixa foreign key(id_caixa) references tb_caixa(id_caixa)
+alter table tb_movimento add constraint fk_movimento_categoria foreign key(id_categoria) references tb_categoria(id_categoria)
+
+create sequence sq_movimento
+
+--alter table tb_movimento modify nr_valor_confirmado null
+--alter table tb_movimento modify tp_movimento char(1)
+
+insert into tb_movimento values(3,4,1,'Mirante','C',4020,null,sysdate,sysdate);
+
+commit;
+create table tb_categoria(
+    id_categoria number(11) not null primary key,
+    ds_categoria varchar2(250) not null
+)
+
+alter table tb_categoria add constraint fk_categoria_empresa foreign key(id_empresa) references tb_empresa(id_empresa)
+
+alter table tb_categoria add id_empresa number(11) not null
+
+drop table tb_empresa
+
+insert into tb_empresa values (1)
+insert into tb_usuario values(1,1)
+
+select * from tb_movimento
+select * from tb_caixa
+
+select c.id_caixa, c.ds_caixa, t.ds_categoria, t.id_categoria, m.id_Movimento, m.ds_historico, m.dt_previsao, m.nr_valor_previsto 
+from tb_Movimento m, tb_caixa c, tb_categoria t where c.id_caixa = m.id_caixa and t.id_categoria = m.id_categoria and c.id_empresa = 1
+
+
+
+create table tb_cliente (
+id_cliente number(11) not null primary key,
+id_empresa number(11) not null,
+nr_cnpj varchar2(20) not null,
+ds_razao_social varchar2(250) not null,
+ds_fantasia varchar2(250) not null,
+nr_ie varchar2(20) not null,
+dt_cadastro date default sysdate
+)
+
+
+alter table tb_cliente add constraint fk_cliente_empresa foreign key(id_empresa) references tb_empresa(id_empresa)
+
+alter table tb_empresa add bo_cliente number(1) default 0
+
+  create sequence sq_cliente
+  
+    alter table tb_cliente modify nr_ie null
+  
+ create table rl_movimento_cliente
+  (
+  id_movimento number(11) not null,
+  id_cliente number(11) not null,
+  constraint pk_movimento_cliente primary key(id_movimento,id_cliente)
+  )
+  
+  alter table rl_movimento_cliente add constraint uq_movimento_cliente unique (id_movimento)
+  
+  alter table rl_movimento_cliente add constraint fn_rl_movimento foreign key(id_movimento) references tb_movimento(id_movimento)
+  
+  alter table rl_movimento_cliente add constraint fn_rl_cliente foreign key(id_cliente) references tb_cliente(id_cliente)
