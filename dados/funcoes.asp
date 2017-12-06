@@ -120,10 +120,14 @@ End Function
 
 Function optAno(id_ano)
 	html = ""
-	html = html & "<option "&selected(id_ano,"2014")&" value='2014'>2014</option>"
-    html = html & "<option "&selected(id_ano,"2015")&" value='2015'>2015</option>"
+	'html = html & "<option "&selected(id_ano,"2014")&" value='2014'>2014</option>"
+    'html = html & "<option "&selected(id_ano,"2015")&" value='2015'>2015</option>"
 	html = html & "<option "&selected(id_ano,"2016")&" value='2016'>2016</option>"
     html = html & "<option "&selected(id_ano,"2017")&" value='2017'>2017</option>"
+    html = html & "<option "&selected(id_ano,"2018")&" value='2018'>2018</option>"
+    html = html & "<option "&selected(id_ano,"2019")&" value='2019'>2019</option>"
+    html = html & "<option "&selected(id_ano,"2020")&" value='2020'>2020</option>"
+    html = html & "<option "&selected(id_ano,"2021")&" value='2021'>2021</option>"
 	optAno = html
 End Function
 
