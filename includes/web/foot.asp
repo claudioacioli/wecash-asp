@@ -1,7 +1,7 @@
 			</div>
 		</div>
         <footer>
-        	<div id="foot">
+        	<div id="foot" style="color:rgb(186, 193, 199);font-size: 18px;">
             	Copyright &copy; 2012 WeCa$h. Todos os direitos reservados.
             </div>
         </footer>

@@ -254,8 +254,9 @@ nav ul.fast li:last-child{
 }
 
 html{
-  background:#e9e9e9 url(../img/grain.png) repeat top left;
-	background-attachment:fixed;
+  /*background:#e9e9e9 url(../img/grain.png) repeat top left;*/
+	/*background-attachment:fixed;*/
+    background-color: #f5f6f7;
 }
 body{
 	/*background:transparent url(../img/side-bg.png) repeat-y top left;
@@ -265,8 +266,9 @@ body{
 	margin:0px;
 	margin-right:200px;
 	overflow-y:scroll;
-    background:#e9e9e9 url(../img/grain.png) repeat top left;
-    background-attachment:fixed;
+    /*background:#e9e9e9 url(../img/grain.png) repeat top left;*/
+    /*background-attachment:fixed;*/
+    background-color:#f5f6f7;
 }
 #top{
 	height:40px;
