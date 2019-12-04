@@ -25,7 +25,7 @@
 					</p>
                     <p>
                         <label class="form-label">Senha:</label>
-                        <input tabindex="2" type="password"  autocomplete="off" id="senha" name="senha" class="form-input" validation="['NULL']" msgnull="Campo Senha é de preenchimento obrigatório. Favor informe-o." maxlength="20" />
+                        <input tabindex="2" type="password" autocomplete="off" id="senha" name="senha" class="form-input" validation="['NULL']" msgnull="Campo Senha é de preenchimento obrigatório. Favor informe-o." maxlength="20" />
 					</p>
                     <p>
                     	<button tabindex="3" type="submit" id='btnSalvar' class="form-button-md form-button-primary">Acessar</button>
@@ -47,7 +47,6 @@
         <script src="includes/script/acioli.class.js"></script>
         <script>
         (function(){
-
             const
                 emailElement = document.querySelector("#email"),
                 passElement = document.querySelector("#senha"),
