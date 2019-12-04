@@ -11,9 +11,9 @@
     <head>
         <meta charset="utf-8">
         <title>WeCash</title>
-        <link rel="stylesheet" type="text/css" href="includes/style/main.css" />
+        <link rel="stylesheet" type="text/css" href="includes/style/main.css?v=0" />
     </head>
-    <body style="margin:0px;">
+    <body>
     	<div class="container">
 			<img src="includes/img/logo.png" align="absmiddle" />
             <div  class="box">
@@ -37,29 +37,38 @@
                     	<div class="atencao"><%=Request("msg")%></div>
                     <%End If%>
                 </form>
-<!-- #include file="includes/web/foot.asp" -->
-<script>
-(function(){
+            </div>
+        </div>
+        <footer>
+            Copyright &copy; 2012 WeCa$h. Todos os direitos reservados.
+        </footer>
+        <script src="includes/script/library/datatypes.class.js"></script>
+        <script src="includes/script/library/Util.js"></script>
+        <script src="includes/script/acioli.class.js"></script>
+        <script>
+        (function(){
 
-    const
-        emailElement = document.querySelector("#email"),
-        passElement = document.querySelector("#senha"),
-        formElement = document.querySelector("#formAcesso"),
-        onSubmit = e => {
-            if(!acioli.validation.submit(e.target))
-                e.preventDefault();
-        },
-        renderFocus = () => {
-            passElement.focus();
-            if(!emailElement.value.toString().length)
-                emailElement.focus();
-        }
-    ;
-    document.addEventListener("DOMContentLoaded", () => {
-        //Events
-        formElement.addEventListener("submit", onSubmit);
-        //Renders
-        renderFocus();
-    });
-})();
-</script>
+            const
+                emailElement = document.querySelector("#email"),
+                passElement = document.querySelector("#senha"),
+                formElement = document.querySelector("#formAcesso"),
+                onSubmit = e => {
+                    if(!acioli.validation.submit(e.target))
+                        e.preventDefault();
+                },
+                renderFocus = () => {
+                    passElement.focus();
+                    if(!emailElement.value.toString().length)
+                        emailElement.focus();
+                }
+            ;
+            document.addEventListener("DOMContentLoaded", () => {
+                //Events
+                formElement.addEventListener("submit", onSubmit);
+                //Renders
+                renderFocus();
+            });
+        })();
+        </script>
+    </body>
+</html>
