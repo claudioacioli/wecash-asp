@@ -40,7 +40,7 @@
             </div>
         </div>
         <footer>
-            Copyright &copy; 2012 WeCa$h. Todos os direitos reservados.
+            Copyright &copy; 2012 - 2020 WeCa$h. Todos os direitos reservados.
         </footer>
         <script src="includes/script/library/datatypes.class.js"></script>
         <script src="includes/script/library/validation.class.js"></script>
