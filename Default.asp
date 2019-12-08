@@ -43,14 +43,15 @@
             Copyright &copy; 2012 WeCa$h. Todos os direitos reservados.
         </footer>
         <script src="includes/script/library/datatypes.class.js"></script>
+        <script src="includes/script/library/validation.class.js"></script>
         <script src="includes/script/library/Util.js"></script>
         <script src="includes/script/acioli.class.js"></script>
         <script>
         (function(){
             const
-                emailElement = document.querySelector("#email"),
-                passElement = document.querySelector("#senha"),
-                formElement = document.querySelector("#formAcesso"),
+                emailElement = document.getElementById("email"),
+                passElement = document.getElementById("senha"),
+                formElement = document.getElementById("formAcesso"),
                 onSubmit = e => {
                     if(!acioli.validation.submit(e.target))
                         e.preventDefault();
